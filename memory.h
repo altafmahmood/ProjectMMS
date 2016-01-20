@@ -1,3 +1,4 @@
+#include"./LinkedList/List.h"
 
 class Memory{
     private:
@@ -9,16 +10,19 @@ class Memory{
         void deallocate(void*);
 };
 
-class MemoryManagement{
+class MemoryManagement:public Memory{
     private:
-        //List allocatedChunks;
-        //List poolsCreated;
-        void* pool;
+        int noOfChunks;
+        int* allocatedChunk[];
+        int* unallocatedChunk[];
+        List ls;
         
     public:
         MemoryManagement();
-        void createPool(int, void**);
+        void createPool(int, int, void**);
         void freePool(void* );
-        void createChunk();
+        int createChunk(char* , void**, int, List& );
         void createLog();
+        void* allocateChunk(int, List&);
+        void deallocateChunk(void* , List&);
 };
