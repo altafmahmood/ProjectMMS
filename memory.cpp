@@ -103,15 +103,16 @@ void* MemoryManagement::allocateChunk(int size, List& lst){
 }
 
 void MemoryManagement::deallocateChunk(void* chunk, List& lst){
-    int i=0;
+    int i=0,j=0;
     while(lst.getData(i)!=chunk){
         i++;
     }
-    lst.setFlag(i,0);
-    
-    
+    j = lst.getNOfChunks(chunk);
+    while(j){
+        lst.setFlag(i,0);
+        lst.setNOfChunks(i,0);
+        i++;j--;
+    }
 }
-
-
 
 

@@ -33,7 +33,11 @@ int main(){
     std::cout << mm.allocateChunk(100,ls[0]) << std::endl;
     mm.deallocateChunk(ff,ls[0]);
     
-        std::cout << mm.allocateChunk(200,ls[0]) << std::endl;
+    ff = mm.allocateChunk(200,ls[0]);
+    mm.allocateChunk(270,ls[0]);
+    mm.deallocateChunk(ff,ls[0]);
+    mm.allocateChunk(150,ls[0]);
+    
     ls[0].display();
     // std::cout << std::endl << chunk[0][0] << std::endl;
     // std::cout << chunk[0][1] << std::endl;
