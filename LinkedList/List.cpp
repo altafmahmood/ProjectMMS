@@ -6,11 +6,12 @@ List::List(){
     head = 0;
 }
 
-void List::addToEnd(void* d,int f){
+void List::addToEnd(void* d,int f,int n){
     Node* temp = new Node;
     temp->setData(d);
     temp->setFlag(f);
     temp->setNext(0);
+    temp->setNOfChunk(0);
     
     if(head == 0){
         head = temp;

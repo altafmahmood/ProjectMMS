@@ -1,10 +1,10 @@
-#include<fstream>
-#include<iostream>
-#include<string>
-#include<sstream>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <sstream>
 #include "ConfigRead.h"
-#include<stdlib.h>
-#include<cstring>
+#include <stdlib.h>
+#include <cstring>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ ConfigRead::ConfigRead(){
 }
 
 int ConfigRead::getPoolSize(){
-    return poolSize;  
+    return poolSize;
 }
 
 int ConfigRead::getNPool(){
@@ -34,11 +34,11 @@ int ConfigRead::getNLogFile(){
 
 void ConfigRead::assignData(){
     int num1, num2;
-    
+
     fileRead(logFile, num1, num2);
     nLogFiles = num1;
     logFileSize = num2;
-    
+
     fileRead(poolFile, num1, num2);
     nPools = num1;
     poolSize = num2;
@@ -50,7 +50,7 @@ void ConfigRead::fileRead(char* file, int& n1, int& n2){
     inpfile.open(file);
     string str;
     char ch;
-    
+
     if(inpfile.is_open()){
         while(inpfile.get(ch)){
             if(ch == '='){

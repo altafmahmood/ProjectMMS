@@ -1,4 +1,6 @@
-#include"./LinkedList/List.h"
+#include "./LinkedList/List.h"
+#include "GenerateLog.h"
+#include <string>
 
 class Memory{
     private:
@@ -15,14 +17,20 @@ class MemoryManagement:public Memory{
         int noOfChunks;
         int* allocatedChunk[];
         int* unallocatedChunk[];
-        List ls;
+        int TotalCapacity[100], MemoryAllocated[100], MemoryAvailable[100], MPoolSize;       
         
+        List ls;
+        GenerateLog gf;
+    
     public:
         MemoryManagement();
         void createPool(int, int, void**);
         void freePool(void* );
-        int createChunk(char* , void**, int, List& );
-        void createLog();
-        void* allocateChunk(int, List&);
-        void deallocateChunk(void* , List&);
+        int createChunk(void* , void**, int, List& );
+        void createLog(std::string);
+        void createLog(std::string ,void* ,int );
+        void* allocateChunk(int, List&, int);
+        void deallocateChunk(void* , List&, int);
+        void displayInfo(int);
+        void viewContents(char*, int);
 };

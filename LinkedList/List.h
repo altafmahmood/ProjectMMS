@@ -6,7 +6,7 @@ class List{
         Node* head;
     public:
         List();
-        void addToEnd(void*,int);
+        void addToEnd(void*,int,int);
         void* getData(int);
         int getFlag(int);
         void setFlag(int, int);
