@@ -1,6 +1,5 @@
-#include"List.h"
 #include<iostream>
-
+#include"List.h"
 
 List::List(){
     head = 0;
@@ -12,7 +11,7 @@ void List::addToEnd(void* d,int f,int n){
     temp->setFlag(f);
     temp->setNext(0);
     temp->setNOfChunk(0);
-    
+
     if(head == 0){
         head = temp;
     }else{
@@ -25,7 +24,7 @@ void List::addToEnd(void* d,int f,int n){
     }
 }
 
-void List::display(){//Node* list_head){
+void List::display(){
     Node* temp = head;
     while(temp != 0){
         std::cout << "Pointer : " << temp->getData() << "\tFlag : " << temp->getFlag() << "\tNoOf chunks : " << temp->getNOfChunk() << std::endl;
@@ -60,7 +59,7 @@ void List::setFlag(int pos, int f){
     }
     temp->setFlag(f);
 }
-        
+
 void List::setData(int pos, void* d){
     Node* temp = head;
     for(int i=1; i<pos; i++){

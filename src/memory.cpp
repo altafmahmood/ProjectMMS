@@ -4,8 +4,6 @@
 #include<fstream>
 #include"memory.h"
 #include "ConfigRead.h"
-// #include "GenerateLog.h"
-// #include "./LinkedList/List.h"
 
 void* Memory::allocate(int size){
     void* storage = malloc(size);
@@ -25,9 +23,6 @@ MemoryManagement::MemoryManagement(){
     outFile << "Logs\t\t\t Memory Space\tSize\n";
     outFile.close();
     MPoolSize = 0;
-    // TotalCapacity = 0;
-    // MemoryAllocated = 0; 
-    // MemoryAvailable = 0;
 }
 
 void MemoryManagement::createPool(int nPool,int poolSize,void** pool){
@@ -43,7 +38,6 @@ void MemoryManagement::createPool(int nPool,int poolSize,void** pool){
 }
 
 void MemoryManagement::freePool(void* storage){
-    //createLog("star\n");
     deallocate(storage);
     createLog("Pool Deallocated",storage,MPoolSize);
 }
@@ -55,17 +49,16 @@ int MemoryManagement::createChunk(void* pool, void** chunk, int poolSize, List& 
         chunk[i]=(char*)pool+i*100;
         ls.addToEnd(chunk[i],0,0);    //Flag=0 for unallocated;
     }
-    
+
     lst=ls;
-    // std::cout << noOfChunks << std::endl;
     return noOfChunks;
 }
-    
+
 void* MemoryManagement::allocateChunk(int size, List& lst, int Npool){
     int i=0,x=0,cnt;
     int total=1,found=0;
     void* returnValue;
-    
+
     if(size>100){
         total = (size/100)+1;
         while(x<noOfChunks){
@@ -92,6 +85,7 @@ void* MemoryManagement::allocateChunk(int size, List& lst, int Npool){
                         lst.setFlag(x,1);
                         x++;cnt--;
                     }
+                    lst.setFlag(x,1);
                     break;
                 }
             }
@@ -129,7 +123,7 @@ void MemoryManagement::deallocateChunk(void* chunk, List& lst, int Npool){
         lst.setNOfChunks(i,0);
         i++;j--;
     }
-    
+
 }
 
 void MemoryManagement::displayInfo(int Npool){
@@ -137,7 +131,6 @@ void MemoryManagement::displayInfo(int Npool){
     std::cout << "MemoryAllocated : " << MemoryAllocated[Npool] << std::endl;
     MemoryAvailable[Npool] = TotalCapacity[Npool] - MemoryAllocated[Npool];
     std::cout << "MemoryAvailable : " << MemoryAvailable[Npool] << std::endl;
-    // gf.displayName();
 }
 
 void MemoryManagement::viewContents(char* ptr,int size){
@@ -152,7 +145,6 @@ void MemoryManagement::viewContents(char* ptr,int size){
 
 void MemoryManagement::createLog(std::string log){
     std::ofstream outFile(".memory.log",std::ios::app);
-    // std::cout << log << std::endl;
     outFile << log;
     outFile.close();
     gf.Log();

@@ -1,3 +1,10 @@
+//Copyright (c)
+//Authors     : Altaf Mahmood, Akash Negi & Amisha
+//Employee ID : 333841, 334085 & 334079
+//Date        : 18 Jan 2016
+//Time        : 13:24
+//Purpose     : Program to read the Configuration Files
+
 #include<string>
 
 class ConfigRead{
@@ -7,15 +14,15 @@ class ConfigRead{
         int nPools;
         int logFileSize;
         int nLogFiles;
-        
+
     public:
         ConfigRead();
         int getPoolSize();
         int getNPool();
         int getLogFileSize();
         int getNLogFile();
-        void assignData();
-        void fileRead(char*, int&, int&);
+        int assignData();
+        int fileRead(char*, int&, int&);
         void display();
 	    ~ConfigRead();
 };

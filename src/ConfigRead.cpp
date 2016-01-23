@@ -2,12 +2,12 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "ConfigRead.h"
 #include <stdlib.h>
 #include <cstring>
+#include <cstdlib>
+#include "ConfigRead.h"
 
 using namespace std;
-
 
 ConfigRead::ConfigRead(){
     poolFile = new char(11);
@@ -32,20 +32,26 @@ int ConfigRead::getNLogFile(){
     return nLogFiles;
 }
 
-void ConfigRead::assignData(){
+int ConfigRead::assignData(){
     int num1, num2;
 
-    fileRead(logFile, num1, num2);
+    int sa = fileRead(logFile, num1, num2);
     nLogFiles = num1;
     logFileSize = num2;
 
-    fileRead(poolFile, num1, num2);
+    int sb = fileRead(poolFile, num1, num2);
     nPools = num1;
     poolSize = num2;
 
+    if(sa==0 && sb==0){
+      return 0;
+    }else{
+      return 1;
+    }
+
 }
 
-void ConfigRead::fileRead(char* file, int& n1, int& n2){
+int ConfigRead::fileRead(char* file, int& n1, int& n2){
     ifstream inpfile;
     inpfile.open(file);
     string str;
@@ -69,8 +75,10 @@ void ConfigRead::fileRead(char* file, int& n1, int& n2){
             }
         }
         inpfile.close();
+        return 0;
     }else{
         std::cerr << "Configuration File " << file << " not found!" <<std::endl;
+        return 1;
     }
 }
 
