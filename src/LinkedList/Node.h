@@ -1,6 +1,5 @@
 //Copyright (c)
-//Authors     : Altaf Mahmood, Akash Negi & Amisha
-//Employee ID : 333841, 334085 & 334079
+//Authors     : Altaf Mahmood
 //Date        : 18 Jan 2016
 //Time        : 10:00
 //Purpose     : Program to generate a Node for LinkedList with void* Data, Flag and NoOfChunks
