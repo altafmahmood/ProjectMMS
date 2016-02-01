@@ -1,6 +1,5 @@
 //Copyright (c)
-//Authors     : Altaf Mahmood, Akash Negi & Amisha
-//Employee ID : 333841, 334085 & 334079
+//Authors     : Altaf Mahmood
 //Date        : 18 Jan 2016
 //Time        : 10:00
 //Purpose     : Program to Create memory pools and to allocate chunks from the available memory pools and generate appropriate log messages
