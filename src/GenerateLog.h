@@ -1,6 +1,5 @@
 //Copyright (c)
-//Authors     : Altaf Mahmood, Akash Negi & Amisha
-//Employee ID : 333841, 334085 & 334079
+//Authors     : Altaf Mahmood
 //Date        : 21 Jan 2016
 //Time        : 12:20
 //Purpose     : Program to Generate Log file and to rotate it
